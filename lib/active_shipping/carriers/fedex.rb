@@ -224,6 +224,12 @@ module ActiveShipping
               end
             end
 
+            if options[:saturday_delivery]
+              xml.SpecialServicesRequested do
+                xml.SpecialServiceTypes("SATURDAY_DELIVERY")
+              end
+            end
+
             xml.LabelSpecification do
               xml.LabelFormatType('COMMON2D')
               xml.ImageType(options[:label_format] || 'PNG')
